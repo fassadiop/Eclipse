@@ -46,7 +46,8 @@ public class PirogueController
         List<Pirogue> listePirogues = pirogueDao.listerLesPirogues();
         return new ResponseEntity <List<Pirogue>> (listePirogues,HttpStatus.OK);
     }
-
+    
+    //Modifier une pirogue
     @PutMapping("/pirogues/{immatriculation}")
     public ResponseEntity<Pirogue> updatePirogue(@PathVariable("immatriculation") String immatriculation, @RequestBody Pirogue newPirogue) throws Exception
     {
@@ -85,7 +86,7 @@ public class PirogueController
             return new ResponseEntity<Pirogue>(pirogue,HttpStatus.OK);
         }
     }
-
+    //Supprimer une pirogue
     @DeleteMapping("/pirogues/{immatriculation}")
     public ResponseEntity<String> eliminerUnePirogue(@PathVariable("immatriculation") String immatriculation) throws Exception
     {
